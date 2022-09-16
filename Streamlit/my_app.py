@@ -23,13 +23,11 @@ st.help(range)
 
 st.write('Hello, *World!* :sunglasses:')
 
+
 # image
-
 img = Image.open("images.jpeg")
-
-st.image(img, caption="cattle")
-
-st.image(img, caption="cattle", width=300)
+st.image(img, caption="cattie")
+st.image(img, caption="cattie", width=300)
 
 
 # my_video = open("ml.mov",'rb')
@@ -37,7 +35,6 @@ st.image(img, caption="cattle", width=300)
 
 
 # checkbox
-
 cbox = st.checkbox("Hide and Seek")
 
 if cbox :
@@ -50,6 +47,7 @@ else :
 status = st.radio("Select a color",("blue","orange","yellow"))
 
 st.write("Your favourite color is {}".format(status))
+#st.write(f"Your favourite color is {status}")
 
 
 # button
@@ -104,9 +102,6 @@ the_time=st.time_input("The time is")
 
 
 #sidebar
-st.sidebar.title("Sidebar title")
-st.sidebar.header("Sidebar header")
-
 
 st.sidebar.title("Sidebar title")
 st.sidebar.header("Sidebar header")
