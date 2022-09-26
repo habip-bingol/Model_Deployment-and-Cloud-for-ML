@@ -10,22 +10,6 @@ from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.pipeline import Pipeline
 
 
-def add_bg_from_url():
-    st.markdown(
-         f"""
-         <style>
-         .stApp {{
-             background-image: url("https://wallpaperaccess.com/full/239032.jpg");
-             background-attachment: fixed;
-             background-size: cover
-         }}
-         </style>
-         """,
-         unsafe_allow_html=True
-     )
-
-add_bg_from_url() 
-
 st.title("Selling Price Predictor🚗")
 st.markdown("**Are you planning to sell your car ?** ")
 st.markdown("**Let's try evaluating the price** :grinning:")
