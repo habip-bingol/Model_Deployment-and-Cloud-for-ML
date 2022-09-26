@@ -9,9 +9,6 @@ from sklearn.compose import make_column_transformer
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.pipeline import Pipeline
 
-df = pd.read_csv("without_outliers_autoscout.csv")   
-features = ["make_model", "body_type", "km", "age", "gearing_type", "gears","price_€"]
-df = df[features]
 
 def add_bg_from_url():
     st.markdown(
@@ -43,10 +40,8 @@ model = pickle.load(open('autoscout_deployment_project', 'rb'))
 
 
 # Creating side bar 
-st.sidebar.title("Select the features")
-    
+st.sidebar.title("Select the features")    
 make_model = st.sidebar.selectbox("Make_Model", df.make_model.unique())
-
 body_type = st.sidebar.selectbox("body_type", df.body_type.unique())
 
 gearing_Type = st.sidebar.selectbox("Gearing_Type", df.gearing_type.unique())
