@@ -31,8 +31,10 @@ def add_bg_from_url():
 
 add_bg_from_url() 
 
-features = ["make_model", "body_type", "km", "age", "gearing_type", "gears","price_€"]
-df = df[features]
+
+# df = pd.read_csv("without_outliers_autoscout.csv")   
+# features = ["make_model", "body_type", "km", "age", "gearing_type", "gears","price_€"]
+# df = df[features]
 
 import pickle
 model = pickle.load(open('autoscout_deployment_project', 'rb'))
@@ -40,9 +42,10 @@ model = pickle.load(open('autoscout_deployment_project', 'rb'))
 
 # Creating side bar 
 st.sidebar.title("Select the features")    
-make_model = st.sidebar.selectbox("Make_Model", df.make_model.unique())
-body_type = st.sidebar.selectbox("body_type", df.body_type.unique())
-gearing_Type = st.sidebar.selectbox("Gearing_Type", df.gearing_type.unique())
+make_model = st.sidebar.selectbox("Make_Model", ("Audi A3","Audi A1","Opel Insignia", "Opel Astra", "Opel Corsa", "Renault Clio", "Renault Espace", "Renault Duster"))
+body_type = st.sidebar.selectbox("body_type", 'Sedans', 'Station wagon', 'Compact', 'Other', 'Coupe', 'Van',
+       'Convertible', 'Off-Road', 'Transporter')
+gearing_Type = st.sidebar.selectbox("Gearing_Type", ("Manual","Automatic", "Semi-automatic"))
 age = st.sidebar.selectbox("age", ("0","1", "2", "3"))
 km = st.sidebar.slider("Km", 0.0, 317000.0)
 Gears = st.sidebar.number_input("Gears",min_value=5, max_value=8)
