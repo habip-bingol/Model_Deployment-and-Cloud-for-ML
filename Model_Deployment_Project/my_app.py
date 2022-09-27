@@ -53,6 +53,7 @@ Gears = st.sidebar.number_input("Gears",min_value=5, max_value=8)
 
 dicti = {"make_model":[make_model],
          "km" : [km],
+         "body_type" :[body_type]
          "age" : [age],
          "gearing_type" : [gearing_Type],
          "gears": [Gears]}
