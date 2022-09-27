@@ -15,11 +15,26 @@ st.markdown("**Are you planning to sell your car ?** ")
 st.markdown("**Let's try evaluating the price** :grinning:")
     
 
- 
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://wallpaperaccess.com/full/239032.jpg");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
 
+add_bg_from_url() 
+
+features = ["make_model", "body_type", "km", "age", "gearing_type", "gears","price_€"]
+df = df[features]
 
 import pickle
-
 model = pickle.load(open('autoscout_deployment_project', 'rb'))
 
 
@@ -27,20 +42,13 @@ model = pickle.load(open('autoscout_deployment_project', 'rb'))
 st.sidebar.title("Select the features")    
 make_model = st.sidebar.selectbox("Make_Model", df.make_model.unique())
 body_type = st.sidebar.selectbox("body_type", df.body_type.unique())
-
 gearing_Type = st.sidebar.selectbox("Gearing_Type", df.gearing_type.unique())
-
-age = st.sidebar.number_input("Age:",min_value=0, max_value=4)
-
-# age = st.sidebar.selectbox("age", ("0","1", "2", "3"))
-
+age = st.sidebar.selectbox("age", ("0","1", "2", "3"))
 km = st.sidebar.slider("Km", 0.0, 317000.0)
-
 Gears = st.sidebar.number_input("Gears",min_value=5, max_value=8)
 
 
 dicti = {"make_model":[make_model],
-         "body_type" : [body_type],
          "km" : [km],
          "age" : [age],
          "gearing_type" : [gearing_Type],
@@ -48,7 +56,7 @@ dicti = {"make_model":[make_model],
 
 df2 = pd.DataFrame(dicti)
 
-if st.button("See Dataset Sample"):
+if st.button("Your car's features : "):
     st.write(df2)
    
 if st.button("Predict"):
