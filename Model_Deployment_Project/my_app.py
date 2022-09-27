@@ -20,7 +20,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://wallpaperaccess.com/full/239032.jpg");
+             background-image: url("https://www.car-revs-daily.com/wp-content/uploads/old/2010-Audi-Quattro-Concept-18.jpg");
              background-attachment: fixed;
              background-size: cover
          }}
@@ -53,7 +53,7 @@ Gears = st.sidebar.number_input("Gears",min_value=5, max_value=8)
 
 dicti = {"make_model":[make_model],
          "km" : [km],
-         "body_type" :[body_type]
+         "body_type" :[body_type],
          "age" : [age],
          "gearing_type" : [gearing_Type],
          "gears": [Gears]}
